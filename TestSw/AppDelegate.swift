@@ -3,9 +3,6 @@
 //  TestSw
 //
 //  Created by hongbaodai on 2017/12/7.
-//  Copyright © 2017年 wang. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

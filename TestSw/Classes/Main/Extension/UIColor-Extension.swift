@@ -50,5 +50,9 @@ extension UIColor {
         self.init(r : CGFloat(r), g : CGFloat(g), b : CGFloat(b))
     }
     
+   class func randomColor() -> UIColor {
+           return UIColor(r: CGFloat(arc4random_uniform(256)), g: CGFloat(arc4random_uniform(256)), b: CGFloat(arc4random_uniform(256)))
+    }
+    
 }
 

@@ -12,8 +12,8 @@ class HXTitleStyle {
     
     var titleHeight : CGFloat = 44
     
-    var normalColor : UIColor = .black
-    var selecColor : UIColor = .orange
+    var normalColor : UIColor = UIColor(r: 0, g: 0, b: 0)
+    var selecColor : UIColor = UIColor(r: 255, g: 127, b: 0)
     var fontSize : CGFloat = 15.0
     
     var isScrollEnable : Bool = false

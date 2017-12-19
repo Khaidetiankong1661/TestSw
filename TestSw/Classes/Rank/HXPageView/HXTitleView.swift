@@ -8,12 +8,21 @@
 
 import UIKit
 
+protocol HXTitleViewDelegate : class {
+    func titleView(_ titleview : HXTitleView, target : Int)
+}
+
 class HXTitleView: UIView {
+    
+    weak var delegate : HXTitleViewDelegate?
 
     fileprivate var titles : [String]
     fileprivate var style : HXTitleStyle
+    
     fileprivate lazy var titleLabels : [UILabel] = [UILabel]()
     
+    fileprivate lazy var currentIndex : Int = 0
+
     fileprivate lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView(frame: self.bounds)
         scrollView.showsHorizontalScrollIndicator = false
@@ -54,6 +63,10 @@ extension HXTitleView {
             
             scrollView.addSubview(titleLabel)
             titleLabels.append(titleLabel)
+            
+            let tapGes = UITapGestureRecognizer(target: self, action: #selector(titleClick(_:)))
+            titleLabel.addGestureRecognizer(tapGes)
+            titleLabel.isUserInteractionEnabled = true
         }
     }
     
@@ -87,8 +100,63 @@ extension HXTitleView {
     }
 }
 
+extension HXTitleView {
+    @objc fileprivate func titleClick(_ tapGes : UITapGestureRecognizer) {
+        let targetLabel = tapGes.view as! UILabel
+        
+        adjustTitleLabel(targetIndex: targetLabel.tag)
+        
+        delegate?.titleView(self, target: currentIndex)
+    }
+    
+    fileprivate func adjustTitleLabel(targetIndex : Int) {
+        
+        if targetIndex == currentIndex { return }
+        // 1.取出Label
+        let targetLabel = titleLabels[targetIndex]
+        let courceLabel = titleLabels[currentIndex]
+        
+        targetLabel.textColor = style.selecColor
+        courceLabel.textColor = style.normalColor
+        
+        currentIndex = targetIndex
+
+        if style.isScrollEnable {
+            
+            var offSetX = targetLabel.center.x - scrollView.bounds.width * 0.5
+            if offSetX < 0 {
+                offSetX = 0
+            }
+            if offSetX > (scrollView.contentSize.width - scrollView.bounds.width) {
+                offSetX = scrollView.contentSize.width - scrollView.bounds.width
+            }
+            scrollView.setContentOffset(CGPoint(x : offSetX, y : 0), animated: true)
+        }
+    }
+}
 
 
+extension HXTitleView : HXContentViewDelegate {
+    func contenView(_ contentView: HXContentView, targetIndex: Int) {
+        adjustTitleLabel(targetIndex: targetIndex)
+    }
+    
+    func contenView(_ contentView: HXContentView, targetIndex: Int, progress: CGFloat) {
+        
+        // 1.取出Label
+        let targetLabel = titleLabels[targetIndex]
+        let sourceLabel = titleLabels[currentIndex]
+        
+        // 2.颜色渐变
+        let deltaRGB = UIColor.getRGBDelta(style.selecColor, style.normalColor)
+        let selectRGB = style.selecColor.getRGB()
+        let normalRGB = style.normalColor.getRGB()
+        targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
+        sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
+    }
+    
+    
+}
 
 
 

@@ -53,6 +53,10 @@ extension HXPageView {
 
         addSubview(contenView)
         contenView.backgroundColor = UIColor.randomColor()
+        
+        titleView.delegate = contenView
+        contenView.delegatet = titleView
+
     }
 }
 

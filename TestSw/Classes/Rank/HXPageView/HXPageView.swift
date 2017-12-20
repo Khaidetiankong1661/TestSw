@@ -48,7 +48,7 @@ extension HXPageView {
     }
     
     private func setUPContenView() {
-        let contentFrame = CGRect(x: 0, y: style.titleHeight, width: bounds.width, height: bounds.height - style.titleHeight - 44)
+        let contentFrame = CGRect(x: 0, y: style.titleHeight, width: bounds.width, height: bounds.height - style.titleHeight)
         let contenView = HXContentView(frame: contentFrame, childrenVC: childVCs, parendVC: parendVC)
 
         addSubview(contenView)

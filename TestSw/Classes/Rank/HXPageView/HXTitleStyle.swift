@@ -18,5 +18,9 @@ class HXTitleStyle {
     
     var isScrollEnable : Bool = false
     var itemMargin : CGFloat = 30;
+    
+    var isShowScrollLine : Bool = false
+    var scrollLineHeight : CGFloat = 2
+    var scrollLineColor : UIColor = .orange
 }
 

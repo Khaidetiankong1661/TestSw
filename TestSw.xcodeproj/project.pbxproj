@@ -23,6 +23,8 @@
 		7B3965671FD8D16C0057165B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3965661FD8D16C0057165B /* HomeViewController.swift */; };
 		7B3965691FD8E7B40057165B /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3965681FD8E7B40057165B /* UIColor-Extension.swift */; };
 		7B39656B1FD8F1280057165B /* HXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39656A1FD8F1280057165B /* HXNavigationController.swift */; };
+		7B4499EA1FEA545C00A604B6 /* HXWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4499E91FEA545C00A604B6 /* HXWaterfallLayout.swift */; };
+		7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4499EB1FEA56C900A604B6 /* HXWaterFallVC.swift */; };
 		7B8AD1EC1FDFA9C2006053D9 /* HXPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1EB1FDFA9C2006053D9 /* HXPageView.swift */; };
 		7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1ED1FDFAA6C006053D9 /* HXTitleStyle.swift */; };
 		7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1EF1FDFB408006053D9 /* HXTitleView.swift */; };
@@ -69,6 +71,9 @@
 		7B3965661FD8D16C0057165B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7B3965681FD8E7B40057165B /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		7B39656A1FD8F1280057165B /* HXNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXNavigationController.swift; sourceTree = "<group>"; };
+		7B4499E21FEA512100A604B6 /* TestSw-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestSw-Bridging-Header.h"; sourceTree = "<group>"; };
+		7B4499E91FEA545C00A604B6 /* HXWaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXWaterfallLayout.swift; sourceTree = "<group>"; };
+		7B4499EB1FEA56C900A604B6 /* HXWaterFallVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HXWaterFallVC.swift; sourceTree = "<group>"; };
 		7B8AD1EB1FDFA9C2006053D9 /* HXPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXPageView.swift; sourceTree = "<group>"; };
 		7B8AD1ED1FDFAA6C006053D9 /* HXTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXTitleStyle.swift; sourceTree = "<group>"; };
 		7B8AD1EF1FDFB408006053D9 /* HXTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXTitleView.swift; sourceTree = "<group>"; };
@@ -130,6 +135,7 @@
 				7B3965241FD8CD8A0057165B /* Assets.xcassets */,
 				7B3965261FD8CD8A0057165B /* LaunchScreen.storyboard */,
 				7B3965291FD8CD8A0057165B /* Info.plist */,
+				7B4499E21FEA512100A604B6 /* TestSw-Bridging-Header.h */,
 			);
 			path = TestSw;
 			sourceTree = "<group>";
@@ -227,10 +233,20 @@
 			isa = PBXGroup;
 			children = (
 				7B8AD1EA1FDFA9A1006053D9 /* HXPageView */,
+				7B4499D51FEA3AE300A604B6 /* WaterFall */,
 				7B3965641FD8D0010057165B /* Rank.storyboard */,
 				7B3965581FD8CDBA0057165B /* RankViewController.swift */,
 			);
 			path = Rank;
+			sourceTree = "<group>";
+		};
+		7B4499D51FEA3AE300A604B6 /* WaterFall */ = {
+			isa = PBXGroup;
+			children = (
+				7B4499E91FEA545C00A604B6 /* HXWaterfallLayout.swift */,
+				7B4499EB1FEA56C900A604B6 /* HXWaterFallVC.swift */,
+			);
+			path = WaterFall;
 			sourceTree = "<group>";
 		};
 		7B8AD1EA1FDFA9A1006053D9 /* HXPageView */ = {
@@ -312,6 +328,7 @@
 				TargetAttributes = {
 					7B3965191FD8CD8A0057165B = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					7B39652D1FD8CD8A0057165B = {
@@ -387,11 +404,13 @@
 				7B3965691FD8E7B40057165B /* UIColor-Extension.swift in Sources */,
 				7B8AD1EC1FDFA9C2006053D9 /* HXPageView.swift in Sources */,
 				7B3965201FD8CD8A0057165B /* ViewController.swift in Sources */,
+				7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */,
 				7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */,
 				7B39655D1FD8CDBA0057165B /* RankViewController.swift in Sources */,
 				7B39651E1FD8CD8A0057165B /* AppDelegate.swift in Sources */,
 				7B8AD1F21FDFCDF5006053D9 /* HXContentView.swift in Sources */,
 				7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */,
+				7B4499EA1FEA545C00A604B6 /* HXWaterfallLayout.swift in Sources */,
 				7B39655A1FD8CDBA0057165B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,12 +577,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WSW3225UBX;
 				INFOPLIST_FILE = TestSw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wang.TestSw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -573,12 +595,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WSW3225UBX;
 				INFOPLIST_FILE = TestSw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wang.TestSw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -19,15 +19,22 @@ class HXTitleView: UIView {
     fileprivate var titles : [String]
     fileprivate var style : HXTitleStyle
     
-    fileprivate lazy var titleLabels : [UILabel] = [UILabel]()
-    
     fileprivate lazy var currentIndex : Int = 0
-
+    
+    fileprivate lazy var titleLabels : [UILabel] = [UILabel]()
     fileprivate lazy var scrollView : UIScrollView = {
         let scrollView = UIScrollView(frame: self.bounds)
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.scrollsToTop = false
         return scrollView
+    }()
+    
+    fileprivate lazy var bottomLine : UIView = {
+      let bottomLine = UIView()
+        bottomLine.backgroundColor = self.style.scrollLineColor
+        bottomLine.frame.size.height = self.style.scrollLineHeight
+        bottomLine.frame.origin.y = self.bounds.height - self.style.scrollLineHeight
+        return bottomLine
     }()
     
     init(frame: CGRect, titles : [String], style : HXTitleStyle) {
@@ -50,6 +57,9 @@ extension HXTitleView {
         addSubview(scrollView)
         setUpTitleLabels()
         setUPTitleLabelFrames()
+        if style.isShowScrollLine {
+            scrollView.addSubview(bottomLine)
+        }
     }
     
     private func setUpTitleLabels() {
@@ -86,6 +96,10 @@ extension HXTitleView {
                 
                 if i == 0 {
                     x = style.itemMargin * 0.5
+                    if style.isShowScrollLine {
+                        bottomLine.frame.origin.x = x
+                        bottomLine.frame.size.width = w
+                    }
                 } else {
                     let labe = titleLabels[i - 1]
                     x = labe.frame.maxX + style.itemMargin
@@ -93,6 +107,11 @@ extension HXTitleView {
             } else {
                 w = bounds.width / CGFloat(cout)
                 x = w * CGFloat(i)
+                
+                if i == 0 && style.isShowScrollLine {
+                    bottomLine.frame.origin.x = 0
+                    bottomLine.frame.size.width = w
+                }
             }
             label.frame = CGRect(x: x, y: y, width: w, height: h)
         }
@@ -105,6 +124,14 @@ extension HXTitleView {
         let targetLabel = tapGes.view as! UILabel
         
         adjustTitleLabel(targetIndex: targetLabel.tag)
+        
+        // 3.调整bottomLine
+        if style.isShowScrollLine {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.bottomLine.frame.origin.x = targetLabel.frame.origin.x
+                self.bottomLine.frame.size.width = targetLabel.frame.width
+            })
+        }
         
         delegate?.titleView(self, target: currentIndex)
     }
@@ -153,6 +180,14 @@ extension HXTitleView : HXContentViewDelegate {
         let normalRGB = style.normalColor.getRGB()
         targetLabel.textColor = UIColor(r: normalRGB.0 + deltaRGB.0 * progress, g: normalRGB.1 + deltaRGB.1 * progress, b: normalRGB.2 + deltaRGB.2 * progress)
         sourceLabel.textColor = UIColor(r: selectRGB.0 - deltaRGB.0 * progress, g: selectRGB.1 - deltaRGB.1 * progress, b: selectRGB.2 - deltaRGB.2 * progress)
+        
+        // 3.bottomLine渐变过程
+        if style.isShowScrollLine {
+            let deltaX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x
+            let deltaW = targetLabel.frame.width - sourceLabel.frame.width
+            bottomLine.frame.origin.x = sourceLabel.frame.origin.x + deltaX * progress
+            bottomLine.frame.size.width = sourceLabel.frame.width + deltaW * progress
+        }
     }
     
     

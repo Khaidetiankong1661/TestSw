@@ -17,6 +17,9 @@ class MainViewController: UITabBarController {
         addChildVc("Rank")
         addChildVc("Discover")
         addChildVc("Profile")
+        
+        let vc = HXWaterFallVC()
+        addChildViewController(vc)
     }
     
     fileprivate func addChildVc(_ storyName : String) {

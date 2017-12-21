@@ -15,6 +15,9 @@ class ProfileViewController: UIViewController , Emitterables {
 
         // Do any additional setup after loading the view.
         
+        let vies = TextView.loadFromNib()
+        
+        view.addSubview(vies)
         
     }
     

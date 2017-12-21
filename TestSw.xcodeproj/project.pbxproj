@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E8A1FEBCC58003BF68E /* Emitterables.swift */; };
 		7B335E901FEBD091003BF68E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */; };
+		7B335E921FEBD53B003BF68E /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E911FEBD53B003BF68E /* NibLoadable.swift */; };
+		7B335E941FEBD6D9003BF68E /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E931FEBD6D9003BF68E /* TextView.swift */; };
+		7B335E961FEBD6E1003BF68E /* TextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B335E951FEBD6E1003BF68E /* TextView.xib */; };
 		7B39651E1FD8CD8A0057165B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39651D1FD8CD8A0057165B /* AppDelegate.swift */; };
 		7B3965201FD8CD8A0057165B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39651F1FD8CD8A0057165B /* ViewController.swift */; };
 		7B3965231FD8CD8A0057165B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B3965211FD8CD8A0057165B /* Main.storyboard */; };
@@ -53,6 +56,9 @@
 /* Begin PBXFileReference section */
 		7B335E8A1FEBCC58003BF68E /* Emitterables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitterables.swift; sourceTree = "<group>"; };
 		7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7B335E911FEBD53B003BF68E /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		7B335E931FEBD6D9003BF68E /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		7B335E951FEBD6E1003BF68E /* TextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextView.xib; sourceTree = "<group>"; };
 		7B39651A1FD8CD8A0057165B /* TestSw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B39651D1FD8CD8A0057165B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B39651F1FD8CD8A0057165B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				7B335E8A1FEBCC58003BF68E /* Emitterables.swift */,
+				7B335E911FEBD53B003BF68E /* NibLoadable.swift */,
 			);
 			path = Toola;
 			sourceTree = "<group>";
@@ -239,6 +246,8 @@
 			children = (
 				7B3965621FD8CE670057165B /* Profile.storyboard */,
 				7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */,
+				7B335E931FEBD6D9003BF68E /* TextView.swift */,
+				7B335E951FEBD6E1003BF68E /* TextView.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -387,6 +396,7 @@
 				7B3965281FD8CD8A0057165B /* LaunchScreen.storyboard in Resources */,
 				7B3965251FD8CD8A0057165B /* Assets.xcassets in Resources */,
 				7B3965611FD8CE410057165B /* Discover.storyboard in Resources */,
+				7B335E961FEBD6E1003BF68E /* TextView.xib in Resources */,
 				7B3965231FD8CD8A0057165B /* Main.storyboard in Resources */,
 				7B39655F1FD8CE370057165B /* Home.storyboard in Resources */,
 			);
@@ -422,7 +432,9 @@
 				7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */,
 				7B39655D1FD8CDBA0057165B /* RankViewController.swift in Sources */,
 				7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */,
+				7B335E921FEBD53B003BF68E /* NibLoadable.swift in Sources */,
 				7B39651E1FD8CD8A0057165B /* AppDelegate.swift in Sources */,
+				7B335E941FEBD6D9003BF68E /* TextView.swift in Sources */,
 				7B8AD1F21FDFCDF5006053D9 /* HXContentView.swift in Sources */,
 				7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */,
 				7B335E901FEBD091003BF68E /* ProfileViewController.swift in Sources */,

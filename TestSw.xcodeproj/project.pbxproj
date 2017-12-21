@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E8A1FEBCC58003BF68E /* Emitterables.swift */; };
+		7B335E901FEBD091003BF68E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */; };
 		7B39651E1FD8CD8A0057165B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39651D1FD8CD8A0057165B /* AppDelegate.swift */; };
 		7B3965201FD8CD8A0057165B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39651F1FD8CD8A0057165B /* ViewController.swift */; };
 		7B3965231FD8CD8A0057165B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B3965211FD8CD8A0057165B /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B335E8A1FEBCC58003BF68E /* Emitterables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitterables.swift; sourceTree = "<group>"; };
+		7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7B39651A1FD8CD8A0057165B /* TestSw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B39651D1FD8CD8A0057165B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B39651F1FD8CD8A0057165B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B335E851FEBB8DE003BF68E /* Toola */ = {
+			isa = PBXGroup;
+			children = (
+				7B335E8A1FEBCC58003BF68E /* Emitterables.swift */,
+			);
+			path = Toola;
+			sourceTree = "<group>";
+		};
 		7B3965111FD8CD8A0057165B = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +212,7 @@
 			children = (
 				7B3965511FD8CDBA0057165B /* Controller */,
 				7B3965541FD8CDBA0057165B /* Extension */,
+				7B335E851FEBB8DE003BF68E /* Toola */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -225,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				7B3965621FD8CE670057165B /* Profile.storyboard */,
+				7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -407,9 +421,11 @@
 				7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */,
 				7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */,
 				7B39655D1FD8CDBA0057165B /* RankViewController.swift in Sources */,
+				7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */,
 				7B39651E1FD8CD8A0057165B /* AppDelegate.swift in Sources */,
 				7B8AD1F21FDFCDF5006053D9 /* HXContentView.swift in Sources */,
 				7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */,
+				7B335E901FEBD091003BF68E /* ProfileViewController.swift in Sources */,
 				7B4499EA1FEA545C00A604B6 /* HXWaterfallLayout.swift in Sources */,
 				7B39655A1FD8CDBA0057165B /* MainViewController.swift in Sources */,
 			);

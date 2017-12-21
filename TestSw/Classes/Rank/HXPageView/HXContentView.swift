@@ -11,9 +11,15 @@ import UIKit
 
 private let identifierID = "identifierID"
 
-protocol HXContentViewDelegate : class {
-    func contenView(_ contentView : HXContentView, targetIndex : Int)
-    func contenView(_ contentView : HXContentView, targetIndex : Int, progress : CGFloat)
+@objc protocol HXContentViewDelegate : class {
+    
+    func contentView(_ contentView : HXContentView, progress : CGFloat, sourceIndex : Int, targetIndex : Int)
+   
+    @objc optional func contentViewEndScroll(_ contentView : HXContentView)
+
+    
+//    func contenView(_ contentView : HXContentView, targetIndex : Int)
+//    func contenView(_ contentView : HXContentView, targetIndex : Int, progress : CGFloat)
 }
 
 class HXContentView: UIView {
@@ -22,6 +28,9 @@ class HXContentView: UIView {
     
     fileprivate var childrenVC : [UIViewController]
     fileprivate var parentVC : UIViewController
+    
+    fileprivate var isForbidScrollDelegate : Bool = false
+
     fileprivate var startOffsetX : CGFloat = 0
     
     fileprivate var isForbidScroll : Bool = false
@@ -88,77 +97,92 @@ extension HXContentView : UICollectionViewDataSource {
 }
 
 extension HXContentView : UICollectionViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        contentEndScroll()
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            contentEndScroll()
-        }
-    }
-    
-    private func contentEndScroll() {
-        
-        // 0.判断是否是禁止状态
-        guard !isForbidScroll else { return }
-        
-        // 1.获取滚动到的位置
-        let currentIndex = Int(collectionView.contentOffset.x / collectionView.bounds.width)
-        
-        // 2.通知titleView进行调整
-        delegatet?.contenView(self, targetIndex: currentIndex)
-
-    }
-    
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        isForbidScroll = true
+        
+        isForbidScrollDelegate = false
         
         startOffsetX = scrollView.contentOffset.x
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        // 0.判断和开始时的偏移量是否一致x
-        guard startOffsetX != scrollView.contentOffset.x, !isForbidScroll else {
-            return
-        }
+        // 0.判断是否是点击事件
+        if isForbidScrollDelegate { return }
         
-        // 1.定义targetIndex/progress
-        var targetIndex = 0
-        var progress : CGFloat = 0.0
+        // 1.定义获取需要的数据
+        var progress : CGFloat = 0
+        var sourceIndex : Int = 0
+        var targetIndex : Int = 0
         
-        // 2.给targetIndex/progress赋值
-        let currentIndex = Int(startOffsetX / scrollView.bounds.width)
-        if startOffsetX < scrollView.contentOffset.x { // 左滑动
-            targetIndex = currentIndex + 1
-            if targetIndex > childrenVC.count - 1 {
+        // 2.判断是左滑还是右滑
+        let currentOffsetX = scrollView.contentOffset.x
+        let scrollViewW = scrollView.bounds.width
+        if currentOffsetX > startOffsetX { // 左滑
+            // 1.计算progress
+            progress = currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW)
+            
+            // 2.计算sourceIndex
+            sourceIndex = Int(currentOffsetX / scrollViewW)
+            
+            // 3.计算targetIndex
+            targetIndex = sourceIndex + 1
+            if targetIndex >= childrenVC.count {
                 targetIndex = childrenVC.count - 1
             }
             
-            progress = (scrollView.contentOffset.x - startOffsetX) / scrollView.bounds.width
-        } else { // 右滑动
-            targetIndex = currentIndex - 1
-            if targetIndex < 0 {
-                targetIndex = 0
+            // 4.如果完全划过去
+            if currentOffsetX - startOffsetX == scrollViewW {
+                progress = 1
+                targetIndex = sourceIndex
             }
+        } else { // 右滑
+            // 1.计算progress
+            progress = 1 - (currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW))
             
-            progress = (startOffsetX - scrollView.contentOffset.x) / scrollView.bounds.width
+            // 2.计算targetIndex
+            targetIndex = Int(currentOffsetX / scrollViewW)
+            
+            // 3.计算sourceIndex
+            sourceIndex = targetIndex + 1
+            if sourceIndex >= childrenVC.count {
+                sourceIndex = childrenVC.count - 1
+            }
         }
         
-        // 3.通知代理
-        delegatet?.contenView(self, targetIndex: targetIndex, progress: progress)
-
+        // 3.将progress/sourceIndex/targetIndex传递给titleView
+        delegatet?.contentView(self, progress: progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
+    }
+    
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        delegatet?.contentViewEndScroll?(self)
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            delegatet?.contentViewEndScroll?(self)
+        }
     }
     
 }
 
-extension HXContentView : HXTitleViewDelegate {
-    func titleView(_ titleview: HXTitleView, target: Int) {
-        isForbidScroll = true
+//extension HXContentView : HXTitleViewDelegate {
+//    func titleView(_ titleview: HXTitleView, target: Int) {
+//        isForbidScroll = true
+//
+//        let indexPath = IndexPath(item: target, section: 0)
+//        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+//    }
+//}
+
+// MARK:- 对外暴露的方法
+extension HXContentView {
+    func setCurrentIndex(_ currentIndex : Int) {
         
-        let indexPath = IndexPath(item: target, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .left, animated: false)
+        // 1.记录需要进制执行代理方法
+        isForbidScrollDelegate = true
+        
+        // 2.滚动正确的位置
+        let offsetX = CGFloat(currentIndex) * collectionView.frame.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
     }
 }
-
-

@@ -13,16 +13,20 @@ class HXPageView: UIView {
 
     fileprivate var titles : [String]
     fileprivate var childVCs : [UIViewController]
-    fileprivate var parendVC : UIViewController
+    fileprivate var parendVC : UIViewController!
     fileprivate var style : HXTitleStyle
     
     fileprivate var titleView : HXTitleView!
-    
+    fileprivate var contentView : HXContentView!
+
     init(frame: CGRect, titles: [String], childVCs : [UIViewController], parentVC : UIViewController, style : HXTitleStyle) {
+        
+//        assert(titles.count == childVCs.count, "标题&控制器个数不同,请检测!!!")
         self.titles = titles
         self.childVCs = childVCs
         self.parendVC = parentVC
         self.style = style
+        parentVC.automaticallyAdjustsScrollViewInsets = false
         
         super.init(frame: frame)
         setUpUI()
@@ -36,27 +40,43 @@ class HXPageView: UIView {
 extension HXPageView {
     
     fileprivate func setUpUI() {
-        setUPTitleViewUI()
-        setUPContenView()
-    }
-    
-    private func setUPTitleViewUI() {
-        let titleFrame = CGRect(x: 0, y: 0, width: bounds.width, height: style.titleHeight)
+        let titleH : CGFloat = 44
+        let titleFrame = CGRect(x: 0, y: 0, width: bounds.width, height: titleH)
         titleView = HXTitleView(frame: titleFrame, titles: titles, style: style)
+        titleView.delegate = self
         addSubview(titleView)
         titleView.backgroundColor = UIColor.randomColor()
+        
+        
+        let contentFrame = CGRect(x: 0, y: titleH, width: bounds.width, height: bounds.height - titleH)
+        contentView = HXContentView(frame: contentFrame, childrenVC: childVCs, parendVC: parendVC)
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+
+        contentView.delegatet = self
+        addSubview(contentView)
+        contentView.backgroundColor = UIColor.randomColor()
+        
+    }
+}
+
+// MARK:- 设置HYContentView的代理
+extension HXPageView : HXContentViewDelegate {
+
+    func contentView(_ contentView: HXContentView, progress: CGFloat, sourceIndex: Int, targetIndex: Int) {
+        titleView.setTitleWithProgress(progress, sourceIndex: sourceIndex, targetIndex: targetIndex)
     }
     
-    private func setUPContenView() {
-        let contentFrame = CGRect(x: 0, y: style.titleHeight, width: bounds.width, height: bounds.height - style.titleHeight)
-        let contenView = HXContentView(frame: contentFrame, childrenVC: childVCs, parendVC: parendVC)
+    func contentViewEndScroll(_ contentView: HXContentView) {
+        titleView.contentViewDidEndScroll()
+    }
+}
 
-        addSubview(contenView)
-        contenView.backgroundColor = UIColor.randomColor()
-        
-        titleView.delegate = contenView
-        contenView.delegatet = titleView
 
+// MARK:- 设置HYTitleView的代理
+extension HXPageView : HXTitleViewDelegate {
+
+    func titleView(_ titleView: HXTitleView, selectedIndex index: Int) {
+        contentView.setCurrentIndex(index)
     }
 }
 

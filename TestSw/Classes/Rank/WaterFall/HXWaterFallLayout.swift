@@ -7,56 +7,62 @@
 //
 
 import UIKit
-protocol HXWaterfallLayoutDataSource : class {
-    func numberOfCols(_ waterfall : HXWaterfallLayout) -> Int
-    func waterfall(_ waterfall : HXWaterfallLayout, item : Int) -> CGFloat
-}
+//protocol HXWaterfallLayoutDataSource : class {
+//    func numberOfCols(_ waterfall : HXWaterfallLayout) -> Int
+//    func waterfall(_ waterfall : HXWaterfallLayout, item : Int) -> CGFloat
+//}
 
 class HXWaterfallLayout: UICollectionViewFlowLayout {
-    weak var dataSource : HXWaterfallLayoutDataSource?
+    
+    var cols : Int = 4
+    var rows : Int = 2
+    
     fileprivate lazy var cellAttrs : [UICollectionViewLayoutAttributes] = [UICollectionViewLayoutAttributes]()
-    fileprivate lazy var cols : Int = {
-        return self.dataSource?.numberOfCols(self) ?? 2
-    }()
-    fileprivate lazy var totalHeights : [CGFloat] = Array(repeating: self.sectionInset.top, count: self.cols)
+    fileprivate lazy var maxWidth : CGFloat = 0
 }
 
 // MARK:- 准备布局
 extension HXWaterfallLayout {
-    
-
     override func prepare() {
         super.prepare()
         
-        // Cell --> UICollectionViewLayoutAttributes
-        // 1.获取cell的个数
-        let itemCount = collectionView!.numberOfItems(inSection: 0)
+        // 0.计算item宽度&高度
+        let itemW = (collectionView!.bounds.width - sectionInset.left - sectionInset.right - minimumInteritemSpacing * CGFloat(cols - 1)) / CGFloat(cols)
+        let itemH = (collectionView!.bounds.height - sectionInset.top - sectionInset.bottom - minimumLineSpacing * CGFloat(rows - 1)) / CGFloat(rows)
         
-        // 2.给每一个Cell创建一个UICollectionViewLayoutAttributes
-        let cellW : CGFloat = (collectionView!.bounds.width - sectionInset.left - sectionInset.right - CGFloat(cols - 1) * minimumInteritemSpacing) / CGFloat(cols)
-        for i in 0..<itemCount {
-            // 1.根据i创建indexPath
-            let indexPath = IndexPath(item: i, section: 0)
-            
-            // 2.根据indexPath创建对应的UICollectionViewLayoutAttributes
-            let attr = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-            
-            // 3.设置attr中的frame
-            guard let cellH : CGFloat = dataSource?.waterfall(self, item: i) else {
-                fatalError("请实现对应的数据源方法,并且返回Cell高度")
+        // 1.获取一共多少组
+        let sectionCount = collectionView!.numberOfSections
+        
+        // 2.获取每组中有多少个Item
+        var prePageCount : Int = 0
+        for i in 0..<sectionCount {
+            let itemCount = collectionView!.numberOfItems(inSection: i)
+            for j in 0..<itemCount {
+                // 2.1.获取Cell对应的indexPath
+                let indexPath = IndexPath(item: j, section: i)
+                
+                // 2.2.根据indexPath创建UICollectionViewLayoutAttributes
+                let attr = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+                
+                // 2.3.计算j在该组中第几页
+                let page = j / (cols * rows)
+                let index = j % (cols * rows)
+                
+                // 2.3.设置attr的frame
+                let itemY = sectionInset.top + (itemH + minimumLineSpacing) * CGFloat(index / cols)
+                let itemX = CGFloat(prePageCount + page) * collectionView!.bounds.width + sectionInset.left + (itemW + minimumInteritemSpacing) * CGFloat(index % cols)
+                attr.frame = CGRect(x: itemX, y: itemY, width: itemW, height: itemH)
+                
+                // 2.4.保存attr到数组中
+                cellAttrs.append(attr)
             }
-            let minH = totalHeights.min()!
-            let minIndex = totalHeights.index(of: minH)!
-            let cellX : CGFloat = sectionInset.left + (minimumInteritemSpacing + cellW) * CGFloat(minIndex)
-            let cellY : CGFloat = minH + minimumLineSpacing
-            attr.frame = CGRect(x: cellX, y: cellY, width: cellW, height: cellH)
             
-            // 4.保存attr
-            cellAttrs.append(attr)
-            
-            // 5.添加当前的高度
-            totalHeights[minIndex] = minH + minimumLineSpacing + cellH
+            prePageCount += (itemCount - 1) / (cols * rows) + 1
         }
+        
+        
+        // 3.计算最大Y值
+        maxWidth = CGFloat(prePageCount) * collectionView!.bounds.width
     }
 }
 
@@ -67,11 +73,10 @@ extension HXWaterfallLayout {
     }
 }
 
-
 // MARK:- 设置contentSize
 extension HXWaterfallLayout {
     override var collectionViewContentSize: CGSize {
-        return CGSize(width: 0, height: totalHeights.max()! + sectionInset.bottom)
+        return CGSize(width: maxWidth, height: 0)
     }
 }
 

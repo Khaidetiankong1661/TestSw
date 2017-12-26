@@ -19,7 +19,7 @@ class HXWaterFallVC: UIViewController {
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         
-        layout.dataSource = self
+//        layout.dataSource = self
         
         let collectionview = UICollectionView(frame: self.view.bounds, collectionViewLayout: layout)
         collectionview.dataSource = self
@@ -47,15 +47,15 @@ extension HXWaterFallVC : UICollectionViewDataSource {
     }
 }
 
-extension HXWaterFallVC : HXWaterfallLayoutDataSource {
-    
-    func numberOfCols(_ waterfall: HXWaterfallLayout) -> Int {
-        return 3
-    }
-    func waterfall(_ waterfall: HXWaterfallLayout, item: Int) -> CGFloat {
-       return CGFloat(arc4random_uniform(150) + 100)
-        
-    }
-
-}
+//extension HXWaterFallVC : HXWaterfallLayoutDataSource {
+//    
+//    func numberOfCols(_ waterfall: HXWaterfallLayout) -> Int {
+//        return 3
+//    }
+//    func waterfall(_ waterfall: HXWaterfallLayout, item: Int) -> CGFloat {
+//       return CGFloat(arc4random_uniform(150) + 100)
+//        
+//    }
+//
+//}
 

@@ -30,6 +30,7 @@
 		7B39656B1FD8F1280057165B /* HXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B39656A1FD8F1280057165B /* HXNavigationController.swift */; };
 		7B4499EA1FEA545C00A604B6 /* HXWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4499E91FEA545C00A604B6 /* HXWaterfallLayout.swift */; };
 		7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4499EB1FEA56C900A604B6 /* HXWaterFallVC.swift */; };
+		7B6F45381FF21EA400A19C48 /* HXPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F45371FF21EA400A19C48 /* HXPageCollectionView.swift */; };
 		7B8AD1EC1FDFA9C2006053D9 /* HXPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1EB1FDFA9C2006053D9 /* HXPageView.swift */; };
 		7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1ED1FDFAA6C006053D9 /* HXTitleStyle.swift */; };
 		7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1EF1FDFB408006053D9 /* HXTitleView.swift */; };
@@ -84,6 +85,7 @@
 		7B4499E21FEA512100A604B6 /* TestSw-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestSw-Bridging-Header.h"; sourceTree = "<group>"; };
 		7B4499E91FEA545C00A604B6 /* HXWaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXWaterfallLayout.swift; sourceTree = "<group>"; };
 		7B4499EB1FEA56C900A604B6 /* HXWaterFallVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HXWaterFallVC.swift; sourceTree = "<group>"; };
+		7B6F45371FF21EA400A19C48 /* HXPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXPageCollectionView.swift; sourceTree = "<group>"; };
 		7B8AD1EB1FDFA9C2006053D9 /* HXPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXPageView.swift; sourceTree = "<group>"; };
 		7B8AD1ED1FDFAA6C006053D9 /* HXTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXTitleStyle.swift; sourceTree = "<group>"; };
 		7B8AD1EF1FDFB408006053D9 /* HXTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXTitleView.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				7B8AD1ED1FDFAA6C006053D9 /* HXTitleStyle.swift */,
 				7B8AD1EF1FDFB408006053D9 /* HXTitleView.swift */,
 				7B8AD1F11FDFCDF5006053D9 /* HXContentView.swift */,
+				7B6F45371FF21EA400A19C48 /* HXPageCollectionView.swift */,
 			);
 			path = HXPageView;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				7B3965201FD8CD8A0057165B /* ViewController.swift in Sources */,
 				7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */,
 				7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */,
+				7B6F45381FF21EA400A19C48 /* HXPageCollectionView.swift in Sources */,
 				7B39655D1FD8CDBA0057165B /* RankViewController.swift in Sources */,
 				7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */,
 				7B335E921FEBD53B003BF68E /* NibLoadable.swift in Sources */,

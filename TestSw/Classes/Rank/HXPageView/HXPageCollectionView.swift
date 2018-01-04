@@ -14,11 +14,15 @@ protocol HXPageCollectionViewDataSource : class {
     func pageCollectionView(_ pageCollectionView: HXPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 }
 
+protocol HXPageCollectionViewDelegate : class {
+    func pageCollectionview(_ pageCollectionView: HXPageCollectionView, didSelectItem indexPath: IndexPath)
+}
 
 class HXPageCollectionView: UIView {
 
     weak var dataSource : HXPageCollectionViewDataSource?
-
+    weak var delegate : HXPageCollectionViewDelegate?
+    
     fileprivate var titles : [String]
     fileprivate var isTitleInTop : Bool
     fileprivate var style : HXTitleStyle
@@ -109,6 +113,10 @@ extension HXPageCollectionView : UICollectionViewDataSource {
 }
 
 extension HXPageCollectionView : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.pageCollectionview(self, didSelectItem: indexPath)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollViewEndScroll()
     }

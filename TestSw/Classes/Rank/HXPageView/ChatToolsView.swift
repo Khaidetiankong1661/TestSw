@@ -16,7 +16,7 @@ class ChatToolsView: UIView, NibLoadable {
 
     weak var delegate : ChatToolsViewDelegate?
     fileprivate var emotionBut : UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-//    fileprivate var emotionView : UIView =
+    fileprivate lazy var emoticonView : EmotionView = EmotionView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: 250))
 
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var sendMsgBtn: UIButton!
@@ -52,6 +52,17 @@ extension ChatToolsView {
         inputTextField.rightView = emotionBut
         inputTextField.rightViewMode = .always
         inputTextField.allowsEditingTextAttributes = true
+        
+        emoticonView.emotionClickCallBlock = {[weak self] emotion in
+
+            if emotion.emoticonName  == "delete-n" {
+                self?.inputTextField.deleteBackward()
+                return
+            }
+            
+            guard let range = self?.inputTextField.selectedTextRange else { return }
+            
+        }
         
     }
 }

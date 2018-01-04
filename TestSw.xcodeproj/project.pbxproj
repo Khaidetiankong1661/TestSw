@@ -19,6 +19,7 @@
 		7B1A837F1FFE1EAE00AFAB20 /* QHNormalEmotionSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B1A837C1FFE1EAD00AFAB20 /* QHNormalEmotionSort.plist */; };
 		7B1A83801FFE1EAE00AFAB20 /* QHSohuGifSort.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B1A837D1FFE1EAD00AFAB20 /* QHSohuGifSort.plist */; };
 		7B1A83811FFE1EAE00AFAB20 /* types.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B1A837E1FFE1EAD00AFAB20 /* types.plist */; };
+		7B1A83831FFE258F00AFAB20 /* EmotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1A83821FFE258F00AFAB20 /* EmotionView.swift */; };
 		7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E8A1FEBCC58003BF68E /* Emitterables.swift */; };
 		7B335E901FEBD091003BF68E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */; };
 		7B335E921FEBD53B003BF68E /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B335E911FEBD53B003BF68E /* NibLoadable.swift */; };
@@ -79,6 +80,7 @@
 		7B1A837C1FFE1EAD00AFAB20 /* QHNormalEmotionSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHNormalEmotionSort.plist; sourceTree = "<group>"; };
 		7B1A837D1FFE1EAD00AFAB20 /* QHSohuGifSort.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = QHSohuGifSort.plist; sourceTree = "<group>"; };
 		7B1A837E1FFE1EAD00AFAB20 /* types.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = types.plist; sourceTree = "<group>"; };
+		7B1A83821FFE258F00AFAB20 /* EmotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionView.swift; sourceTree = "<group>"; };
 		7B335E8A1FEBCC58003BF68E /* Emitterables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitterables.swift; sourceTree = "<group>"; };
 		7B335E8F1FEBD091003BF68E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7B335E911FEBD53B003BF68E /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				7B6F45371FF21EA400A19C48 /* HXPageCollectionView.swift */,
 				7B1A83701FFE185300AFAB20 /* EmoticonViewCell.swift */,
 				7B1A83711FFE185300AFAB20 /* EmoticonViewCell.xib */,
+				7B1A83821FFE258F00AFAB20 /* EmotionView.swift */,
 				7B1A83641FFDD7C500AFAB20 /* ChatToolsView.swift */,
 				7B1A83661FFDD82100AFAB20 /* ChatToolsView.xib */,
 			);
@@ -503,6 +506,7 @@
 				7B6F45381FF21EA400A19C48 /* HXPageCollectionView.swift in Sources */,
 				7B39655D1FD8CDBA0057165B /* RankViewController.swift in Sources */,
 				7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */,
+				7B1A83831FFE258F00AFAB20 /* EmotionView.swift in Sources */,
 				7B1A837A1FFE1CAD00AFAB20 /* EmoticonPackage.swift in Sources */,
 				7B335E921FEBD53B003BF68E /* NibLoadable.swift in Sources */,
 				7B39651E1FD8CD8A0057165B /* AppDelegate.swift in Sources */,

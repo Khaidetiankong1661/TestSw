@@ -24,9 +24,9 @@ class ProfileViewController: UIViewController , Emitterables {
         
         
         
-        let pageFrame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 300)
+        let pageFrame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 250)
         
-        let titles = ["土豪", "热门", "专属", "常见"]
+        let titles = ["普通", "粉丝专属"]
         let style = HXTitleStyle()
         style.isShowBottomLine = true
         
@@ -34,24 +34,18 @@ class ProfileViewController: UIViewController , Emitterables {
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        layout.cols = 4
-        layout.rows = 2
+        layout.cols = 7
+        layout.rows = 3
         
         let pageCollectionView = HXPageCollectionView(frame: pageFrame, titles: titles, style: style, isTitleInTop: false, layout: layout)
         
         pageCollectionView.dataSource = self
-        pageCollectionView.register(cell: UICollectionViewCell.self, identifiler: kEmoticonCell)
-        
+//        pageCollectionView.delega
+//        pageCollectionView.register(cell: UICollectionViewCell.self, identifiler: kEmoticonCell)
+        pageCollectionView.register(nib: UINib(nibName:"EmoticonViewCell", bundle: nil), identifier: kEmoticonCell)
         view.addSubview(pageCollectionView)
         
     }
-    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        start()
-//    }
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        stop()
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,18 +56,15 @@ class ProfileViewController: UIViewController , Emitterables {
 
 extension ProfileViewController : HXPageCollectionViewDataSource {
     func numberOfSections(in pageCollectionView: HXPageCollectionView) -> Int {
-        return 3
+        return EmoticonViewModel.shareInstance.packages.count
     }
     func pageCollectionView(_ collectionView: HXPageCollectionView, numberOfItemsInsection section: Int) -> Int {
-        if section == 0 {
-            return 40
-        } else {
-            return 14
-        }
+        return EmoticonViewModel.shareInstance.packages[section].emotions.count
     }
     func pageCollectionView(_ pageCollectionView: HXPageCollectionView, _ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kEmoticonCell, for: indexPath)
-        cell.backgroundColor = UIColor.randomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kEmoticonCell, for: indexPath) as!EmoticonViewCell
+//        cell.backgroundColor = UIColor.randomColor()
+        cell.enmotion = EmoticonViewModel.shareInstance.packages[indexPath.section].emotions[indexPath.item]
         return cell
     }
     

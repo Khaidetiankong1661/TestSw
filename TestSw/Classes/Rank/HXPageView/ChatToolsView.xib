@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="fGB-re-zkZ" customClass="ChatToolsView" customModule="TestSw" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="愉快地和主播聊一聊吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iUm-ev-6xa">
+                    <rect key="frame" x="5" y="5" width="300" height="34"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="textFieldDidEdit:" destination="fGB-re-zkZ" eventType="editingDidEnd" id="9Ve-aL-qGu"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-L3-xuf">
+                    <rect key="frame" x="310" y="5" width="60" height="34"/>
+                    <color key="backgroundColor" red="0.81176470590000005" green="0.58431372550000005" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="3vq-i2-UWg"/>
+                    </constraints>
+                    <state key="normal" title="发送">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="disabled">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="sendBtnClick:" destination="fGB-re-zkZ" eventType="touchUpInside" id="qo0-Dy-hUZ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="dVR-L3-xuf" secondAttribute="bottom" constant="5" id="6An-xb-qH3"/>
+                <constraint firstAttribute="bottom" secondItem="iUm-ev-6xa" secondAttribute="bottom" constant="5" id="9fZ-aZ-UB6"/>
+                <constraint firstItem="dVR-L3-xuf" firstAttribute="top" secondItem="fGB-re-zkZ" secondAttribute="top" constant="5" id="G0h-dn-99j"/>
+                <constraint firstAttribute="trailing" secondItem="dVR-L3-xuf" secondAttribute="trailing" constant="5" id="Oi5-Sk-57c"/>
+                <constraint firstItem="dVR-L3-xuf" firstAttribute="leading" secondItem="iUm-ev-6xa" secondAttribute="trailing" constant="5" id="iZl-Qr-FE4"/>
+                <constraint firstItem="iUm-ev-6xa" firstAttribute="leading" secondItem="fGB-re-zkZ" secondAttribute="leading" constant="5" id="ji8-GJ-gwe"/>
+                <constraint firstItem="iUm-ev-6xa" firstAttribute="top" secondItem="fGB-re-zkZ" secondAttribute="top" constant="5" id="qJt-dU-842"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fWq-Yh-4Ec"/>
+            <connections>
+                <outlet property="inputTextField" destination="iUm-ev-6xa" id="nz0-tV-GK9"/>
+                <outlet property="sendMsgBtn" destination="dVR-L3-xuf" id="Yc9-Gp-2Sm"/>
+            </connections>
+            <point key="canvasLocation" x="-149.5" y="-303"/>
+        </view>
+    </objects>
+</document>

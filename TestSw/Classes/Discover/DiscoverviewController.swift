@@ -8,11 +8,13 @@
 
 import UIKit
 private let kChatToolsViewHeight : CGFloat = 44
+private let kGiftlistViewHeight : CGFloat = kScreenH * 0.5
 
 class DiscoverviewController: UIViewController, Emitterables {
 
     @IBOutlet weak var bgImageView: UIView!
     fileprivate lazy var chatToolsView : ChatToolsView = ChatToolsView.loadFromNib()
+    fileprivate lazy var giftListView : GiftListView = GiftListView.loadFromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,23 +32,19 @@ class DiscoverviewController: UIViewController, Emitterables {
 extension DiscoverviewController {
     fileprivate func setUpUI() {
         
-//        setupBlurView()
         setUpBottomView()
     }
-    
-//    fileprivate func setupBlurView() {
-//        let blur = UIBlurEffect(style: .dark)
-//        let blurView = UIVisualEffectView(effect: blur)
-//        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        blurView.frame = bgImageView.bounds
-//        bgImageView.addSubview(blurView)
-//    }
     
     fileprivate func setUpBottomView () {
         chatToolsView.frame = CGRect(x: 0, y: view.bounds.height, width: view.bounds.width, height: kChatToolsViewHeight)
         chatToolsView.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
         chatToolsView.delegate = self
         view.addSubview(chatToolsView)
+        
+        giftListView.frame = CGRect(x: 0, y: view.bounds.height, width: view.bounds.width, height: kGiftlistViewHeight)
+        giftListView.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
+        view.addSubview(giftListView)
+        giftListView.delegate = self
     }
     
 }
@@ -59,6 +57,10 @@ extension DiscoverviewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         chatToolsView.inputTextField.resignFirstResponder()
+        
+        UIView.animate(withDuration: 0.25, animations: {
+            self.giftListView.frame.origin.y = kScreenH
+        })
     }
     
     @IBAction func bottomMenuClick(_ sender: UIButton) {
@@ -68,6 +70,9 @@ extension DiscoverviewController {
         case 1:
             print("点击了分享")
         case 2:
+            UIView.animate(withDuration: 0.25, animations: {
+               self.giftListView.frame.origin.y = kScreenH - kGiftlistViewHeight
+            })
             print("点击了礼物")
         case 3:
             print("点击了更多")
@@ -97,23 +102,14 @@ extension DiscoverviewController {
     }
 }
 
-extension DiscoverviewController : ChatToolsViewDelegate {
+extension DiscoverviewController : ChatToolsViewDelegate, GiftListViewDelegate {
     func chatToolsView(toolView: ChatToolsView, message: String) {
         print(message)
     }
+    
+    func giftListView(gitfListView: GiftListView, giftModel: GiftModel) {
+        print(giftModel.subject)
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

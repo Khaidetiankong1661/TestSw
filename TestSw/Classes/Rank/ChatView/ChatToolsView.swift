@@ -71,11 +71,11 @@ extension ChatToolsView {
     @objc fileprivate func emoticonBtnClick(_ btn : UIButton) {
         btn.isSelected = !btn.isSelected
 //        // 切换键盘
-//        let range = inputTextField.selectedTextRange
-//        inputTextField.resignFirstResponder()
-//        inputTextField.inputView = inputTextField.inputView == nil ? emoticonView : nil
-//        inputTextField.becomeFirstResponder()
-//        inputTextField.selectedTextRange = range
+        let range = inputTextField.selectedTextRange
+        inputTextField.resignFirstResponder()
+        inputTextField.inputView = inputTextField.inputView == nil ? emoticonView : nil
+        inputTextField.becomeFirstResponder()
+        inputTextField.selectedTextRange = range
         
     }
 }

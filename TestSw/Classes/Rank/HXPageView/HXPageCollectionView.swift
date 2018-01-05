@@ -58,7 +58,7 @@ extension HXPageCollectionView {
         titleView = HXTitleView(frame: titleFrame, titles: titles, style: style)
         addSubview(titleView)
         titleView.delegate = self
-        titleView.backgroundColor = UIColor.randomColor()
+//        titleView.backgroundColor = UIColor.randomColor()
         
         // 创建pagecontrolller
         let pageControllerHeight : CGFloat = 20
@@ -67,7 +67,7 @@ extension HXPageCollectionView {
         pageControl = UIPageControl(frame: pageControllerFrame)
         pageControl.numberOfPages = 1
         pageControl.isEnabled = false
-        pageControl.backgroundColor = UIColor.randomColor()
+        pageControl.backgroundColor = UIColor.black
         addSubview(pageControl)
         
         // 创建collectionview
@@ -80,7 +80,7 @@ extension HXPageCollectionView {
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         addSubview(collectionView)
-        collectionView.backgroundColor = UIColor.randomColor()
+//        collectionView.backgroundColor = UIColor.randomColor()
         
     }
 }
@@ -92,6 +92,9 @@ extension HXPageCollectionView {
     }
     func register(nib : UINib?, identifier : String) {
         collectionView.register(nib, forCellWithReuseIdentifier: identifier)
+    }
+    func reloadData() {
+        collectionView.reloadData()
     }
 }
 

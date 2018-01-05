@@ -45,7 +45,6 @@ extension HXPageView {
         titleView = HXTitleView(frame: titleFrame, titles: titles, style: style)
         titleView.delegate = self
         addSubview(titleView)
-        titleView.backgroundColor = UIColor.randomColor()
         
         
         let contentFrame = CGRect(x: 0, y: titleH, width: bounds.width, height: bounds.height - titleH)
@@ -54,7 +53,6 @@ extension HXPageView {
 
         contentView.delegatet = self
         addSubview(contentView)
-        contentView.backgroundColor = UIColor.randomColor()
         
     }
 }

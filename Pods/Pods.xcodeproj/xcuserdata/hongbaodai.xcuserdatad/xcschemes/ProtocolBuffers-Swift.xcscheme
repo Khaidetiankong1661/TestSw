@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5374FA22567DD80D7D221EB475F9E44C"
-               BuildableName = "Pods_TestSw.framework"
-               BlueprintName = "Pods-TestSw"
+               BlueprintIdentifier = "CA3C939EFB54A7718D932BEF38A4B27A"
+               BuildableName = "ProtocolBuffers.framework"
+               BlueprintName = "ProtocolBuffers-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5374FA22567DD80D7D221EB475F9E44C"
-            BuildableName = "Pods_TestSw.framework"
-            BlueprintName = "Pods-TestSw"
+            BlueprintIdentifier = "CA3C939EFB54A7718D932BEF38A4B27A"
+            BuildableName = "ProtocolBuffers.framework"
+            BlueprintName = "ProtocolBuffers-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

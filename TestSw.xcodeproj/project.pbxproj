@@ -45,15 +45,15 @@
 		7B4499EA1FEA545C00A604B6 /* HXWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4499E91FEA545C00A604B6 /* HXWaterfallLayout.swift */; };
 		7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4499EB1FEA56C900A604B6 /* HXWaterFallVC.swift */; };
 		7B6F45381FF21EA400A19C48 /* HXPageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F45371FF21EA400A19C48 /* HXPageCollectionView.swift */; };
+		7B7188F620073827008E5965 /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7188F120073826008E5965 /* ysocket.swift */; };
+		7B7188F720073827008E5965 /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B7188F220073826008E5965 /* ytcpsocket.c */; };
+		7B7188F820073827008E5965 /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7188F320073826008E5965 /* ytcpsocket.swift */; };
+		7B7188F920073827008E5965 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B7188F420073826008E5965 /* yudpsocket.c */; };
+		7B7188FA20073827008E5965 /* yudpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7188F520073826008E5965 /* yudpsocket.swift */; };
 		7B8AD1EC1FDFA9C2006053D9 /* HXPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1EB1FDFA9C2006053D9 /* HXPageView.swift */; };
 		7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1ED1FDFAA6C006053D9 /* HXTitleStyle.swift */; };
 		7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1EF1FDFB408006053D9 /* HXTitleView.swift */; };
 		7B8AD1F21FDFCDF5006053D9 /* HXContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AD1F11FDFCDF5006053D9 /* HXContentView.swift */; };
-		7B8C3D0A20061183005E806D /* ysocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3D0520061183005E806D /* ysocket.swift */; };
-		7B8C3D0B20061183005E806D /* ytcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3D0620061183005E806D /* ytcpsocket.c */; };
-		7B8C3D0C20061183005E806D /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3D0720061183005E806D /* ytcpsocket.swift */; };
-		7B8C3D0D20061183005E806D /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3D0820061183005E806D /* yudpsocket.c */; };
-		7B8C3D0E20061183005E806D /* yudpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3D0920061183005E806D /* yudpsocket.swift */; };
 		7B8C3D1220061239005E806D /* HXSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8C3D1120061239005E806D /* HXSocket.swift */; };
 		7BBC34BA1FFF2381004DC265 /* GiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC34B91FFF2381004DC265 /* GiftListView.swift */; };
 		7BBC34BC1FFF2398004DC265 /* GiftListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BBC34BB1FFF2398004DC265 /* GiftListView.xib */; };
@@ -131,15 +131,15 @@
 		7B4499E91FEA545C00A604B6 /* HXWaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXWaterfallLayout.swift; sourceTree = "<group>"; };
 		7B4499EB1FEA56C900A604B6 /* HXWaterFallVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HXWaterFallVC.swift; sourceTree = "<group>"; };
 		7B6F45371FF21EA400A19C48 /* HXPageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXPageCollectionView.swift; sourceTree = "<group>"; };
+		7B7188F120073826008E5965 /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
+		7B7188F220073826008E5965 /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
+		7B7188F320073826008E5965 /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
+		7B7188F420073826008E5965 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
+		7B7188F520073826008E5965 /* yudpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yudpsocket.swift; sourceTree = "<group>"; };
 		7B8AD1EB1FDFA9C2006053D9 /* HXPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXPageView.swift; sourceTree = "<group>"; };
 		7B8AD1ED1FDFAA6C006053D9 /* HXTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXTitleStyle.swift; sourceTree = "<group>"; };
 		7B8AD1EF1FDFB408006053D9 /* HXTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXTitleView.swift; sourceTree = "<group>"; };
 		7B8AD1F11FDFCDF5006053D9 /* HXContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXContentView.swift; sourceTree = "<group>"; };
-		7B8C3D0520061183005E806D /* ysocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ysocket.swift; sourceTree = "<group>"; };
-		7B8C3D0620061183005E806D /* ytcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ytcpsocket.c; sourceTree = "<group>"; };
-		7B8C3D0720061183005E806D /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
-		7B8C3D0820061183005E806D /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
-		7B8C3D0920061183005E806D /* yudpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yudpsocket.swift; sourceTree = "<group>"; };
 		7B8C3D1120061239005E806D /* HXSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HXSocket.swift; sourceTree = "<group>"; };
 		7BBC34B91FFF2381004DC265 /* GiftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftListView.swift; sourceTree = "<group>"; };
 		7BBC34BB1FFF2398004DC265 /* GiftListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftListView.xib; sourceTree = "<group>"; };
@@ -387,6 +387,19 @@
 			path = WaterFall;
 			sourceTree = "<group>";
 		};
+		7B7188F020073826008E5965 /* ysocket */ = {
+			isa = PBXGroup;
+			children = (
+				7B7188F120073826008E5965 /* ysocket.swift */,
+				7B7188F220073826008E5965 /* ytcpsocket.c */,
+				7B7188F320073826008E5965 /* ytcpsocket.swift */,
+				7B7188F420073826008E5965 /* yudpsocket.c */,
+				7B7188F520073826008E5965 /* yudpsocket.swift */,
+			);
+			name = ysocket;
+			path = ../../../../../ysocket;
+			sourceTree = "<group>";
+		};
 		7B8AD1EA1FDFA9A1006053D9 /* HXPageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,22 +423,10 @@
 		7B8C3D0320061179005E806D /* HYSocket */ = {
 			isa = PBXGroup;
 			children = (
-				7B8C3D0420061183005E806D /* ysocket */,
+				7B7188F020073826008E5965 /* ysocket */,
 				7B8C3D1120061239005E806D /* HXSocket.swift */,
 			);
 			path = HYSocket;
-			sourceTree = "<group>";
-		};
-		7B8C3D0420061183005E806D /* ysocket */ = {
-			isa = PBXGroup;
-			children = (
-				7B8C3D0520061183005E806D /* ysocket.swift */,
-				7B8C3D0620061183005E806D /* ytcpsocket.c */,
-				7B8C3D0720061183005E806D /* ytcpsocket.swift */,
-				7B8C3D0820061183005E806D /* yudpsocket.c */,
-				7B8C3D0920061183005E806D /* yudpsocket.swift */,
-			);
-			path = ysocket;
 			sourceTree = "<group>";
 		};
 		7BBC34B71FFF231A004DC265 /* ChatView */ = {
@@ -681,10 +682,10 @@
 				7B8AD1EC1FDFA9C2006053D9 /* HXPageView.swift in Sources */,
 				7B8C3D1220061239005E806D /* HXSocket.swift in Sources */,
 				7BBC34CC1FFF2BC0004DC265 /* GiftViewModel.swift in Sources */,
+				7B7188FA20073827008E5965 /* yudpsocket.swift in Sources */,
 				7B1A83781FFE1C3900AFAB20 /* EmoticonViewModel.swift in Sources */,
 				7B3965201FD8CD8A0057165B /* ViewController.swift in Sources */,
 				7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */,
-				7B8C3D0A20061183005E806D /* ysocket.swift in Sources */,
 				7B1A83721FFE185300AFAB20 /* EmoticonViewCell.swift in Sources */,
 				7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */,
 				7B6F45381FF21EA400A19C48 /* HXPageCollectionView.swift in Sources */,
@@ -692,28 +693,28 @@
 				7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */,
 				7B1A83831FFE258F00AFAB20 /* EmotionView.swift in Sources */,
 				7B1A837A1FFE1CAD00AFAB20 /* EmoticonPackage.swift in Sources */,
-				7B8C3D0C20061183005E806D /* ytcpsocket.swift in Sources */,
 				7B335E921FEBD53B003BF68E /* NibLoadable.swift in Sources */,
 				7BBC34C81FFF29F1004DC265 /* KingfisherExtension.swift in Sources */,
 				7B39651E1FD8CD8A0057165B /* AppDelegate.swift in Sources */,
 				7BBC34D21FFF4E0A004DC265 /* NetworkTools.swift in Sources */,
 				7B1A83631FFDCC7C00AFAB20 /* DiscoverviewController.swift in Sources */,
-				7B8C3D0D20061183005E806D /* yudpsocket.c in Sources */,
 				7B335E941FEBD6D9003BF68E /* TextView.swift in Sources */,
+				7B7188F720073827008E5965 /* ytcpsocket.c in Sources */,
 				7B1A83651FFDD7C500AFAB20 /* ChatToolsView.swift in Sources */,
 				7B8AD1F21FDFCDF5006053D9 /* HXContentView.swift in Sources */,
 				7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */,
+				7B7188F920073827008E5965 /* yudpsocket.c in Sources */,
 				7B335E901FEBD091003BF68E /* ProfileViewController.swift in Sources */,
 				7BBC34BF1FFF249E004DC265 /* GiftViewCell.swift in Sources */,
+				7B7188F820073827008E5965 /* ytcpsocket.swift in Sources */,
 				7BBC34BA1FFF2381004DC265 /* GiftListView.swift in Sources */,
 				7BBC34C51FFF2600004DC265 /* BaseModel.swift in Sources */,
 				7B1A83761FFE196E00AFAB20 /* Emoticon.swift in Sources */,
+				7B7188F620073827008E5965 /* ysocket.swift in Sources */,
 				7B4499EA1FEA545C00A604B6 /* HXWaterfallLayout.swift in Sources */,
 				7B39655A1FD8CDBA0057165B /* MainViewController.swift in Sources */,
 				7BBC34CE1FFF2C09004DC265 /* GiftPackage.swift in Sources */,
 				7B1A836B1FFDFB5000AFAB20 /* Const.swift in Sources */,
-				7B8C3D0E20061183005E806D /* yudpsocket.swift in Sources */,
-				7B8C3D0B20061183005E806D /* ytcpsocket.c in Sources */,
 				7BBC34C21FFF25B9004DC265 /* GiftModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

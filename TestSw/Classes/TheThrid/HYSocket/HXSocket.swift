@@ -82,16 +82,19 @@ extension HXSocket {
         var length = data.count
         let headerData = Data(bytes: &length, count: 4)
        
-        // 消息类型
-        var temType = type
-        let typeData = Data(bytes: &temType, count: 2)
+//        // 消息类型
+//        var temType = type
+//        let typeData = Data(bytes: &temType, count: 2)
         
         // 发送消息
-        let totalData = headerData + typeData + data
+//        let totalData = headerData + typeData + data
+        let totalData = headerData + data
         tcpClient.send(data: totalData)
         
     }
-    
+    func sendMsg(str: String) {
+        tcpClient.send(str: str)
+    }
 }
 
 

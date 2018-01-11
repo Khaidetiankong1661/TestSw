@@ -12,17 +12,52 @@ private let kEmoticonCell = "kEmoticonCellt"
 
 
 class ProfileViewController: UIViewController , Emitterables {
+    fileprivate lazy var socket : HXSocket = HXSocket(addr: "192.168.1.155", port: 7878)
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        
+        if socket.connectServer() {
+            socket.startReadMsg()
+        }
+       
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let msg = "你也好啊，李长江"
+        let data = msg.data(using: .utf8)!
+        
+        var length = data.count
+        
+        let headerData = Data(bytes: &length, count: 4)
+        
+        let totalData = headerData + data
+        
+        
+//        let msgData = Data(base64Encoded: msg)
+//        socket.sendMsg(str: "你好啊 李银河")
+        socket.sendMsg(data: totalData, type: 1)
+        
+    }
+    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+}
+
+
+
+extension ProfileViewController {
+    func addSegmentView() {
         let vies = TextView.loadFromNib()
         
         view.addSubview(vies)
-        
-        
         
         let pageFrame = CGRect(x: 0, y: 100, width: view.bounds.width, height: 250)
         
@@ -41,15 +76,10 @@ class ProfileViewController: UIViewController , Emitterables {
         
         pageCollectionView.dataSource = self
         pageCollectionView.delegate = self
-//        pageCollectionView.register(cell: UICollectionViewCell.self, identifiler: kEmoticonCell)
+        //        pageCollectionView.register(cell: UICollectionViewCell.self, identifiler: kEmoticonCell)
         pageCollectionView.register(nib: UINib(nibName:"EmoticonViewCell", bundle: nil), identifier: kEmoticonCell)
         view.addSubview(pageCollectionView)
         
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

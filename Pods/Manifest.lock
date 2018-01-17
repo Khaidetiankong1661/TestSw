@@ -1,15 +1,12 @@
 PODS:
   - Alamofire (4.5.1)
-  - ProtocolBuffers-Swift (3.0.24)
 
 DEPENDENCIES:
   - Alamofire
-  - ProtocolBuffers-Swift
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  ProtocolBuffers-Swift: 42ad3864cb1d09dd544589742d585d553dcdff2c
 
-PODFILE CHECKSUM: ca20a4939f8501b33bb9d9e135cc6491e8a00faf
+PODFILE CHECKSUM: dd234fa76387bd3fb7f2c600c95521baea334f30
 
 COCOAPODS: 1.2.1

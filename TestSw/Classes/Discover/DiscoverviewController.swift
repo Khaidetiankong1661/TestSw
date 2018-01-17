@@ -15,12 +15,21 @@ class DiscoverviewController: UIViewController, Emitterables {
     @IBOutlet weak var bgImageView: UIView!
     fileprivate lazy var chatToolsView : ChatToolsView = ChatToolsView.loadFromNib()
     fileprivate lazy var giftListView : GiftListView = GiftListView.loadFromNib()
+    fileprivate lazy var socket : HXSocket = HXSocket(addr: "192.168.1.155", port: 7878)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpUI()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        if socket.connectServer() {
+            print("连接成功")
+            socket.startReadMsg()
+            
+//            socket.sendJoinRoom()
+            socket.delegate = self
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,11 +114,28 @@ extension DiscoverviewController {
 extension DiscoverviewController : ChatToolsViewDelegate, GiftListViewDelegate {
     func chatToolsView(toolView: ChatToolsView, message: String) {
         print(message)
+//        socket.sendTextMsg(message: message)
     }
     
     func giftListView(gitfListView: GiftListView, giftModel: GiftModel) {
         print(giftModel.subject)
+//        socket.sendGiftMsg(giftName: giftModel.subject, giftURL: giftModel.img2, giftCount: 1)
     }
 }
 
 
+
+extension DiscoverviewController : HXSocketDelegate {
+//    func socket(_ sokect: HXSocket, joinRoom user: UserInfo) {
+//
+//    }
+//    func socket(_ sokect: HXSocket, leaveRoom user: UserInfo) {
+//
+//    }
+//    func socket(_ sokect: HXSocket, chatMsg: ChatMessage) {
+//
+//    }
+//    func socket(_ sokect: HXSocket, giftMsg: GiftMessage) {
+//
+//    }
+}

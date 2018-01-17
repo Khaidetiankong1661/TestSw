@@ -155,11 +155,14 @@ extension HXContentView : UICollectionViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         delegatet?.contentViewEndScroll?(self)
+        scrollView.isScrollEnabled = true
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             delegatet?.contentViewEndScroll?(self)
+        } else {
+            scrollView.isScrollEnabled = false
         }
     }
     

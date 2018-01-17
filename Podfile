@@ -4,7 +4,6 @@ platform :ios, '9.0'
 use_frameworks!
 target 'TestSw' do
    pod 'Alamofire'
-   pod 'ProtocolBuffers-Swift'
-
+  
 
 end

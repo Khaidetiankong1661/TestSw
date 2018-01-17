@@ -7,7 +7,25 @@
 		<key>TestSw.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>7B3965191FD8CD8A0057165B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7B39652D1FD8CD8A0057165B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7B3965381FD8CD8A0057165B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

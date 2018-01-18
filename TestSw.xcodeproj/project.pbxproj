@@ -56,6 +56,13 @@
 		7BA0F7F6200DF1A70091C432 /* ytcpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0F7F1200DF1A70091C432 /* ytcpsocket.swift */; };
 		7BA0F7F7200DF1A70091C432 /* yudpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0F7F2200DF1A70091C432 /* yudpsocket.c */; };
 		7BA0F7F8200DF1A70091C432 /* yudpsocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0F7F3200DF1A70091C432 /* yudpsocket.swift */; };
+		7BA19F5820108E8C007837F1 /* IMMessage.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7BA19F5720108E8C007837F1 /* IMMessage.proto */; };
+		7BA19F60201094DE007837F1 /* Immessage.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA19F5F201094DE007837F1 /* Immessage.proto.swift */; };
+		7BA19F6420109D8A007837F1 /* ChatContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA19F6320109D8A007837F1 /* ChatContentView.xib */; };
+		7BA19F682010A12C007837F1 /* ChatContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA19F672010A12C007837F1 /* ChatContentView.swift */; };
+		7BA19F6B2010A1AD007837F1 /* ChatContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA19F692010A1AD007837F1 /* ChatContentCell.swift */; };
+		7BA19F6C2010A1AD007837F1 /* ChatContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA19F6A2010A1AD007837F1 /* ChatContentCell.xib */; };
+		7BA19F6E2010A3E5007837F1 /* AttrStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA19F6D2010A3E5007837F1 /* AttrStringGenerator.swift */; };
 		7BBC34BA1FFF2381004DC265 /* GiftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC34B91FFF2381004DC265 /* GiftListView.swift */; };
 		7BBC34BC1FFF2398004DC265 /* GiftListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BBC34BB1FFF2398004DC265 /* GiftListView.xib */; };
 		7BBC34BF1FFF249E004DC265 /* GiftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC34BD1FFF249E004DC265 /* GiftViewCell.swift */; };
@@ -159,6 +166,13 @@
 		7BA0F7F1200DF1A70091C432 /* ytcpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytcpsocket.swift; sourceTree = "<group>"; };
 		7BA0F7F2200DF1A70091C432 /* yudpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = yudpsocket.c; sourceTree = "<group>"; };
 		7BA0F7F3200DF1A70091C432 /* yudpsocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = yudpsocket.swift; sourceTree = "<group>"; };
+		7BA19F5720108E8C007837F1 /* IMMessage.proto */ = {isa = PBXFileReference; lastKnownFileType = text; path = IMMessage.proto; sourceTree = "<group>"; };
+		7BA19F5F201094DE007837F1 /* Immessage.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Immessage.proto.swift; sourceTree = "<group>"; };
+		7BA19F6320109D8A007837F1 /* ChatContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatContentView.xib; sourceTree = "<group>"; };
+		7BA19F672010A12C007837F1 /* ChatContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentView.swift; sourceTree = "<group>"; };
+		7BA19F692010A1AD007837F1 /* ChatContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatContentCell.swift; sourceTree = "<group>"; };
+		7BA19F6A2010A1AD007837F1 /* ChatContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatContentCell.xib; sourceTree = "<group>"; };
+		7BA19F6D2010A3E5007837F1 /* AttrStringGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttrStringGenerator.swift; sourceTree = "<group>"; };
 		7BBC34B91FFF2381004DC265 /* GiftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftListView.swift; sourceTree = "<group>"; };
 		7BBC34BB1FFF2398004DC265 /* GiftListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GiftListView.xib; sourceTree = "<group>"; };
 		7BBC34BD1FFF249E004DC265 /* GiftViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftViewCell.swift; sourceTree = "<group>"; };
@@ -344,6 +358,11 @@
 				7B1A83741FFE194C00AFAB20 /* Model */,
 				7B3965601FD8CE410057165B /* Discover.storyboard */,
 				7B1A83621FFDCC7C00AFAB20 /* DiscoverviewController.swift */,
+				7BA19F672010A12C007837F1 /* ChatContentView.swift */,
+				7BA19F6320109D8A007837F1 /* ChatContentView.xib */,
+				7BA19F692010A1AD007837F1 /* ChatContentCell.swift */,
+				7BA19F6A2010A1AD007837F1 /* ChatContentCell.xib */,
+				7BA19F6D2010A3E5007837F1 /* AttrStringGenerator.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -443,6 +462,8 @@
 			children = (
 				7BA0F7E4200DF1490091C432 /* ysocket */,
 				7B8C3D1120061239005E806D /* HXSocket.swift */,
+				7BA19F5720108E8C007837F1 /* IMMessage.proto */,
+				7BA19F5F201094DE007837F1 /* Immessage.proto.swift */,
 			);
 			path = HYSocket;
 			sourceTree = "<group>";
@@ -647,12 +668,14 @@
 				7B3965651FD8D0020057165B /* Rank.storyboard in Resources */,
 				7B1A83731FFE185300AFAB20 /* EmoticonViewCell.xib in Resources */,
 				7B1A83801FFE1EAE00AFAB20 /* QHSohuGifSort.plist in Resources */,
+				7BA19F6C2010A1AD007837F1 /* ChatContentCell.xib in Resources */,
 				7B3965281FD8CD8A0057165B /* LaunchScreen.storyboard in Resources */,
 				7B3965251FD8CD8A0057165B /* Assets.xcassets in Resources */,
 				7B1A83671FFDD82100AFAB20 /* ChatToolsView.xib in Resources */,
 				7B3965611FD8CE410057165B /* Discover.storyboard in Resources */,
 				7BBC34BC1FFF2398004DC265 /* GiftListView.xib in Resources */,
 				7B335E961FEBD6E1003BF68E /* TextView.xib in Resources */,
+				7BA19F6420109D8A007837F1 /* ChatContentView.xib in Resources */,
 				7B1A83811FFE1EAE00AFAB20 /* types.plist in Resources */,
 				7B3965231FD8CD8A0057165B /* Main.storyboard in Resources */,
 				7B1A837F1FFE1EAE00AFAB20 /* QHNormalEmotionSort.plist in Resources */,
@@ -741,10 +764,12 @@
 				7B3965201FD8CD8A0057165B /* ViewController.swift in Sources */,
 				7B4499EC1FEA56C900A604B6 /* HXWaterFallVC.swift in Sources */,
 				7B1A83721FFE185300AFAB20 /* EmoticonViewCell.swift in Sources */,
+				7BA19F60201094DE007837F1 /* Immessage.proto.swift in Sources */,
 				7B8AD1F01FDFB408006053D9 /* HXTitleView.swift in Sources */,
 				7B6F45381FF21EA400A19C48 /* HXPageCollectionView.swift in Sources */,
 				7B39655D1FD8CDBA0057165B /* RankViewController.swift in Sources */,
 				7B335E8B1FEBCC58003BF68E /* Emitterables.swift in Sources */,
+				7BA19F682010A12C007837F1 /* ChatContentView.swift in Sources */,
 				7B1A83831FFE258F00AFAB20 /* EmotionView.swift in Sources */,
 				7B1A837A1FFE1CAD00AFAB20 /* EmoticonPackage.swift in Sources */,
 				7B335E921FEBD53B003BF68E /* NibLoadable.swift in Sources */,
@@ -755,16 +780,19 @@
 				7B335E941FEBD6D9003BF68E /* TextView.swift in Sources */,
 				7BA0F7F5200DF1A70091C432 /* ytcpsocket.c in Sources */,
 				7B1A83651FFDD7C500AFAB20 /* ChatToolsView.swift in Sources */,
+				7BA19F6B2010A1AD007837F1 /* ChatContentCell.swift in Sources */,
 				7B8AD1F21FDFCDF5006053D9 /* HXContentView.swift in Sources */,
 				7B8AD1EE1FDFAA6C006053D9 /* HXTitleStyle.swift in Sources */,
 				7BA0F7F7200DF1A70091C432 /* yudpsocket.c in Sources */,
 				7B335E901FEBD091003BF68E /* ProfileViewController.swift in Sources */,
 				7BBC34BF1FFF249E004DC265 /* GiftViewCell.swift in Sources */,
+				7BA19F6E2010A3E5007837F1 /* AttrStringGenerator.swift in Sources */,
 				7BA0F7F6200DF1A70091C432 /* ytcpsocket.swift in Sources */,
 				7BBC34BA1FFF2381004DC265 /* GiftListView.swift in Sources */,
 				7BBC34C51FFF2600004DC265 /* BaseModel.swift in Sources */,
 				7B1A83761FFE196E00AFAB20 /* Emoticon.swift in Sources */,
 				7BA0F7F4200DF1A70091C432 /* ysocket.swift in Sources */,
+				7BA19F5820108E8C007837F1 /* IMMessage.proto in Sources */,
 				7B4499EA1FEA545C00A604B6 /* HXWaterfallLayout.swift in Sources */,
 				7B39655A1FD8CDBA0057165B /* MainViewController.swift in Sources */,
 				7BBC34CE1FFF2C09004DC265 /* GiftPackage.swift in Sources */,

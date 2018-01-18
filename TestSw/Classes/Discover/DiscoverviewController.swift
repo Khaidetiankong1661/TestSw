@@ -9,13 +9,16 @@
 import UIKit
 private let kChatToolsViewHeight : CGFloat = 44
 private let kGiftlistViewHeight : CGFloat = kScreenH * 0.5
+private let kChatContentViewHeight : CGFloat = 200
 
 class DiscoverviewController: UIViewController, Emitterables {
 
     @IBOutlet weak var bgImageView: UIView!
     fileprivate lazy var chatToolsView : ChatToolsView = ChatToolsView.loadFromNib()
     fileprivate lazy var giftListView : GiftListView = GiftListView.loadFromNib()
+    fileprivate lazy var chatContentView : ChatContentView = ChatContentView.loadFromNib()
     fileprivate lazy var socket : HXSocket = HXSocket(addr: "192.168.1.155", port: 7878)
+    fileprivate var heartBeatTimer : Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +29,25 @@ class DiscoverviewController: UIViewController, Emitterables {
         if socket.connectServer() {
             print("连接成功")
             socket.startReadMsg()
-            
-//            socket.sendJoinRoom()
+            addHeartBeatTimer()
+            socket.sendJoinRoom()
             socket.delegate = self
         }
     }
 
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        socket.sendLeaveRoom()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    deinit {
+        heartBeatTimer?.invalidate()
+        heartBeatTimer = nil
     }
 }
 
@@ -45,6 +58,11 @@ extension DiscoverviewController {
     }
     
     fileprivate func setUpBottomView () {
+        
+        chatContentView.frame = CGRect(x: 0, y: view.bounds.height - 44 - kChatContentViewHeight, width: view.bounds.width, height: kChatContentViewHeight)
+        chatContentView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+        view.addSubview(chatContentView)
+        
         chatToolsView.frame = CGRect(x: 0, y: view.bounds.height, width: view.bounds.width, height: kChatToolsViewHeight)
         chatToolsView.autoresizingMask = [.flexibleTopMargin, .flexibleWidth]
         chatToolsView.delegate = self
@@ -107,6 +125,8 @@ extension DiscoverviewController {
             UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
             let endY = inputViewY == (kScreenH - kChatToolsViewHeight) ? kScreenH : inputViewY
             self.chatToolsView.frame.origin.y = endY
+            let contentEndY = inputViewY == (kScreenH - kChatToolsViewHeight) ? (kScreenH - kChatContentViewHeight - 44) : endY - kChatContentViewHeight
+            self.chatContentView.frame.origin.y = contentEndY
         }
     }
 }
@@ -114,28 +134,43 @@ extension DiscoverviewController {
 extension DiscoverviewController : ChatToolsViewDelegate, GiftListViewDelegate {
     func chatToolsView(toolView: ChatToolsView, message: String) {
         print(message)
-//        socket.sendTextMsg(message: message)
+        socket.sendTextMsg(message: message)
     }
     
     func giftListView(gitfListView: GiftListView, giftModel: GiftModel) {
         print(giftModel.subject)
-//        socket.sendGiftMsg(giftName: giftModel.subject, giftURL: giftModel.img2, giftCount: 1)
+        socket.sendGiftMsg(giftName: giftModel.subject, giftURL: giftModel.img2, giftCount: 1)
+    }
+}
+
+extension DiscoverviewController {
+    fileprivate func addHeartBeatTimer() {
+        heartBeatTimer = Timer(fireAt: Date(), interval: 9, target: self, selector: #selector(sendHeartBeat), userInfo: nil, repeats: true)
+        
+    }
+    @objc fileprivate func sendHeartBeat() {
+        socket.sendHeartBeat()
     }
 }
 
 
-
 extension DiscoverviewController : HXSocketDelegate {
-//    func socket(_ sokect: HXSocket, joinRoom user: UserInfo) {
+ 
+    func socket(_ sokect: HXSocket, joinRoom user: UserInfo) {
+        chatContentView.insertMsg(AttrStringGenerator.generateJoinLeaveRoom(user.name, true))
+    }
+    func socket(_ sokect: HXSocket, leaveRoom user: UserInfo) {
+
+        chatContentView.insertMsg(AttrStringGenerator.generateJoinLeaveRoom(user.name, false))
+    }
+    func socket(_ sokect: HXSocket, chatMsg: ChatMessage) {
+        // 1.通过富文本生成器, 生产需要的富文本
+//        let chatMsgMAttr = AttrStringGenerator.generateTextMessage(chatMsg.user.name, chatMsg.text)
 //
-//    }
-//    func socket(_ sokect: HXSocket, leaveRoom user: UserInfo) {
-//
-//    }
-//    func socket(_ sokect: HXSocket, chatMsg: ChatMessage) {
-//
-//    }
-//    func socket(_ sokect: HXSocket, giftMsg: GiftMessage) {
-//
-//    }
+//        // 2.将文本的属性字符串插入到内容View中
+//        chatContentView.insertMsg(chatMsgMAttr)
+    }
+    func socket(_ sokect: HXSocket, giftMsg: GiftMessage) {
+
+    }
 }

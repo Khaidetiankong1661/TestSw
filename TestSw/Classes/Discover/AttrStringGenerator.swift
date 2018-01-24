@@ -21,7 +21,7 @@ extension AttrStringGenerator {
         return roomMAttr
     }
     
-    func generateTextMessage(_ username : String, _ message : String) -> NSAttributedString {
+    class func generateTextMessage(_ username : String, _ message : String) -> NSAttributedString {
         let chatMessage = "\(username): \(message)"
         let chatMsgMAttr = NSMutableAttributedString(string: chatMessage)
         

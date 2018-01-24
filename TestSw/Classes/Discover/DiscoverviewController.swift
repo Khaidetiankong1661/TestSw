@@ -59,7 +59,8 @@ extension DiscoverviewController {
     
     fileprivate func setUpBottomView () {
         
-        chatContentView.frame = CGRect(x: 0, y: view.bounds.height - 44 - kChatContentViewHeight, width: view.bounds.width, height: kChatContentViewHeight)
+        chatContentView.frame = CGRect(x: 0, y: view.bounds.height - 44 - 50  - kChatContentViewHeight, width: view.bounds.width, height: kChatContentViewHeight)
+//        chatContentView.backgroundColor = UIColor.red
         chatContentView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         view.addSubview(chatContentView)
         
@@ -125,7 +126,7 @@ extension DiscoverviewController {
             UIView.setAnimationCurve(UIViewAnimationCurve(rawValue: 7)!)
             let endY = inputViewY == (kScreenH - kChatToolsViewHeight) ? kScreenH : inputViewY
             self.chatToolsView.frame.origin.y = endY
-            let contentEndY = inputViewY == (kScreenH - kChatToolsViewHeight) ? (kScreenH - kChatContentViewHeight - 44) : endY - kChatContentViewHeight
+            let contentEndY = inputViewY == (kScreenH - kChatToolsViewHeight) ? (kScreenH - kChatContentViewHeight - 50 - 44) : endY - kChatContentViewHeight
             self.chatContentView.frame.origin.y = contentEndY
         }
     }
@@ -165,12 +166,16 @@ extension DiscoverviewController : HXSocketDelegate {
     }
     func socket(_ sokect: HXSocket, chatMsg: ChatMessage) {
         // 1.通过富文本生成器, 生产需要的富文本
-//        let chatMsgMAttr = AttrStringGenerator.generateTextMessage(chatMsg.user.name, chatMsg.text)
-//
-//        // 2.将文本的属性字符串插入到内容View中
-//        chatContentView.insertMsg(chatMsgMAttr)
+        let chatMsgMAttr = AttrStringGenerator.generateTextMessage(chatMsg.user.name, chatMsg.text)
+
+        // 2.将文本的属性字符串插入到内容View中
+        chatContentView.insertMsg(chatMsgMAttr)
     }
     func socket(_ sokect: HXSocket, giftMsg: GiftMessage) {
-
+//        // 1.通过富文本生成器, 生产需要的富文本
+//        let giftMsgAttr = AttrStringGenerator.generateGiftMessage(giftMsg.giftname, giftMsg.giftUrl, giftMsg.user.name)
+//
+//        // 2.将文本的属性字符串插入到内容View中
+//        chatContentView.insertMsg(giftMsgAttr)
     }
 }
